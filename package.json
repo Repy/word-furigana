@@ -1,0 +1,19 @@
+{
+  "name": "word-furigana",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "author": "",
+  "devDependencies": {
+    "@types/office-js": "^1.0.256",
+    "@types/office-runtime": "^1.0.23",
+    "typescript": "^5.0.4",
+    "ts-loader":"^9.4.2",
+    "copy-webpack-plugin":"^11.0.0",
+    "webpack": "^5.83.1",
+    "webpack-cli": "^5.1.1"
+  }
+}
