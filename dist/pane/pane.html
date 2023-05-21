@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/build/kuromoji.min.js"></script>
+    <script src="./kuromoji/build/kuromoji.js"></script>
     <script>
         function tokenize(str) {
             if (tokenizer) {
@@ -30,7 +30,7 @@
         }
         var loaded = false;
         var tokenizer = null;
-        kuromoji.builder({ dicPath: "https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/" }).build(function (err, t) {
+        kuromoji.builder({ dicPath: "./kuromoji/dict/" }).build(function (err, t) {
             document.getElementById("is-loading").textContent = "読み込み完了";
             loaded = true;
             tokenizer = t;
