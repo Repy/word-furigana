@@ -21,6 +21,7 @@
                     r: kanaToHira(i.reading),
                 })
             }
+            return out;
         }
         function kanaToHira(str) {
             return str.replace(/[\u30a1-\u30f6]/g, function (match) {
@@ -37,7 +38,7 @@
             console.error(err);
         });
     </script>
-    <script type="text/javascript" src="pane.js"></script>
+    <script type="text/javascript" src="./pane.js"></script>
 </head>
 
 <body>
