@@ -61,7 +61,7 @@ function addRubi() {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, Word.run(function (context) { return __awaiter(_this, void 0, void 0, function () {
-                        var range, text, rubitext, field;
+                        var range, rubidata, _i, rubidata_1, iterator, text, rubitext, field;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0:
@@ -70,13 +70,27 @@ function addRubi() {
                                     return [4 /*yield*/, context.sync()];
                                 case 1:
                                     _a.sent();
-                                    text = range.text;
-                                    rubitext = "かくにん";
-                                    field = range.insertField(Word.InsertLocation.replace, Word.FieldType.eq, "\\* jc2 \\* hps10 \\o(\\s\\up9(" + rubitext + ")," + text + ")", true);
+                                    rubidata = rubi(range.text);
+                                    range.clear();
                                     return [4 /*yield*/, context.sync()];
                                 case 2:
                                     _a.sent();
-                                    return [2 /*return*/];
+                                    _i = 0, rubidata_1 = rubidata;
+                                    _a.label = 3;
+                                case 3:
+                                    if (!(_i < rubidata_1.length)) return [3 /*break*/, 6];
+                                    iterator = rubidata_1[_i];
+                                    text = iterator.s;
+                                    rubitext = iterator.r;
+                                    field = range.insertField(Word.InsertLocation.replace, Word.FieldType.eq, "\\* jc2 \\* hps10 \\o(\\s\\up9(" + rubitext + ")," + text + ")", true);
+                                    return [4 /*yield*/, context.sync()];
+                                case 4:
+                                    _a.sent();
+                                    _a.label = 5;
+                                case 5:
+                                    _i++;
+                                    return [3 /*break*/, 3];
+                                case 6: return [2 /*return*/];
                             }
                         });
                     }); })];

@@ -18,15 +18,20 @@ async function addRubi() {
     const range = context.document.getSelection();
     range.load("text");
     await context.sync();
-    const text = range.text;
-    const rubitext = "かくにん";
-    const field = range.insertField(
-      Word.InsertLocation.replace,
-      Word.FieldType.eq,
-      "\\* jc2 \\* hps10 \\o(\\s\\up9(" + rubitext + ")," + text + ")",
-      true
-    );
+    const rubidata = rubi(range.text);
+    range.clear();
     await context.sync();
+    for (const iterator of rubidata) {
+      const text = iterator.s;
+      const rubitext = iterator.r;
+      const field = range.insertField(
+        Word.InsertLocation.replace,
+        Word.FieldType.eq,
+        "\\* jc2 \\* hps10 \\o(\\s\\up9(" + rubitext + ")," + text + ")",
+        true
+      );
+      await context.sync();
+    }
   });
 }
 

@@ -5,11 +5,50 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/build/kuromoji.min.js"></script>
+    <script>
+        function tokenize(str) {
+            if (tokenizer) {
+                return tokenizer.tokenize(str);
+            }
+        }
+        function rubi(str) {
+            var data = tokenize(str);
+            let out = [];
+            for (const i of data) {
+                out.push({
+                    s: i.surface_form,
+                    r: kanaToHira(i.reading),
+                })
+            }
+        }
+        function kanaToHira(str) {
+            return str.replace(/[\u30a1-\u30f6]/g, function (match) {
+                var chr = match.charCodeAt(0) - 0x60;
+                return String.fromCharCode(chr);
+            });
+        }
+        var loaded = false;
+        var tokenizer = null;
+        kuromoji.builder({ dicPath: "https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/" }).build(function (err, t) {
+            document.getElementById("is-loading").textContent = "読み込み完了";
+            loaded = true;
+            tokenizer = t;
+            console.log(path);
+        });
+    </script>
     <script type="text/javascript" src="pane.js"></script>
 </head>
 
 <body>
-  <button id="button">ルビ</button>
+    <div id="is-loading">読み込み中</div>
+    <button id="button">ルビ</button>
+    <button id="test">テスト</button>
+    <script>
+        document.getElementById("test").addEventListener("click", function () {
+            console.log(tokenize("今日はみかんが食べたい"))
+        }, false);
+    </script>
 </body>
 
 </html>
