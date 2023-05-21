@@ -82,7 +82,7 @@ function addRubi() {
                                     iterator = rubidata_1[_i];
                                     text = iterator.s;
                                     rubitext = iterator.r;
-                                    field = range.insertField(Word.InsertLocation.replace, Word.FieldType.eq, "\\* jc2 \\* hps10 \\o(\\s\\up9(" + rubitext + ")," + text + ")", true);
+                                    field = range.insertField(Word.InsertLocation.start, Word.FieldType.eq, "\\* jc2 \\* hps10 \\o(\\s\\up9(" + rubitext + ")," + text + ")", true);
                                     return [4 /*yield*/, context.sync()];
                                 case 4:
                                     _a.sent();

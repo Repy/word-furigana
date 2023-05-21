@@ -25,7 +25,7 @@ async function addRubi() {
       const text = iterator.s;
       const rubitext = iterator.r;
       const field = range.insertField(
-        Word.InsertLocation.replace,
+        Word.InsertLocation.start,
         Word.FieldType.eq,
         "\\* jc2 \\* hps10 \\o(\\s\\up9(" + rubitext + ")," + text + ")",
         true
