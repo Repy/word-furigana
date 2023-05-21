@@ -7,9 +7,11 @@ function getGlobal() {
 }
 
 const g = getGlobal();
-const button: HTMLElement = <HTMLElement>g.document.getElementById("button");
 
-button.addEventListener("click", () => tryCatch(addRubi), false);
+Office.onReady(() => {
+  const button: HTMLElement = <HTMLElement>g.document.getElementById("button");
+  button.addEventListener("click", () => tryCatch(addRubi), false);
+});
 
 async function addRubi() {
   await Word.run(async (context) => {

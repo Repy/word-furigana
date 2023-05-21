@@ -51,8 +51,10 @@ function getGlobal() {
             : __webpack_require__.g;
 }
 var g = getGlobal();
-var button = g.document.getElementById("button");
-button.addEventListener("click", function () { return tryCatch(addRubi); }, false);
+Office.onReady(function () {
+    var button = g.document.getElementById("button");
+    button.addEventListener("click", function () { return tryCatch(addRubi); }, false);
+});
 function addRubi() {
     return __awaiter(this, void 0, void 0, function () {
         var _this = this;
