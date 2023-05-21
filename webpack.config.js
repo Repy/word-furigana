@@ -5,7 +5,7 @@ module.exports = {
     mode: "development",
     devtool: "source-map",
     entry: {
-        'commands/commands.js': './src/commands/commands.ts',
+        'pane/pane.js': './src/pane/pane.ts',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

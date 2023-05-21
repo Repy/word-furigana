@@ -19,63 +19,7 @@
     <Host Name="Document"/>
   </Hosts>
   <DefaultSettings>
+    <SourceLocation DefaultValue="https://repy.github.io/word-furigana/dist/pane/pane.html"/>
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
-    <Hosts>
-      <Host xsi:type="Document">
-        <DesktopFormFactor>
-          <FunctionFile resid="Commands.Url"/>
-          <ExtensionPoint xsi:type="PrimaryCommandSurface">
-            <CustomTab id="FuriganaTab">
-              <Label resid="CustomTab.Label"/>
-              <Group id="FuriganaTabGroup">
-                <Label resid="CommandsGroup.Label"/>
-                <Icon>
-                  <bt:Image size="16" resid="Icon.16x16"/>
-                  <bt:Image size="32" resid="Icon.32x32"/>
-                  <bt:Image size="80" resid="Icon.80x80"/>
-                </Icon>
-                <Control xsi:type="Button" id="RubiButton">
-                  <Label resid="RubiButton.Label"/>
-                  <Supertip>
-                    <Title resid="RubiButton.Label"/>
-                    <Description resid="RubiButton.Tooltip"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Icon.16x16"/>
-                    <bt:Image size="32" resid="Icon.32x32"/>
-                    <bt:Image size="80" resid="Icon.80x80"/>
-                  </Icon>
-                  <Action xsi:type="ExecuteFunction">
-                    <FunctionName>addRubi</FunctionName>
-                  </Action>
-                </Control>
-              </Group>
-            </OfficeTab>
-          </ExtensionPoint>
-        </DesktopFormFactor>
-      </Host>
-    </Hosts>
-    <Resources>
-      <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://repy.github.io/word-furigana/dist/assets/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://repy.github.io/word-furigana/dist/assets/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://repy.github.io/word-furigana/dist/assets/icon-80.png"/>
-      </bt:Images>
-      <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://repy.github.io/word-furigana/dist/commands/commands.html"/>
-      </bt:Urls>
-      <bt:ShortStrings>
-        <bt:String id="App.Title" DefaultValue="ルビふり君"/>
-        <bt:String id="CustomTab.Label" DefaultValue="ルビふり君"/>
-        <bt:String id="CommandsGroup.Label" DefaultValue="ルビふり君"/>
-        <bt:String id="RubiButton.Label" DefaultValue="ルビふり君"/>
-      </bt:ShortStrings>
-      <bt:LongStrings>
-        <bt:String id="App.Description" DefaultValue="ルビふり君"/>
-        <bt:String id="RubiButton.Tooltip" DefaultValue="ルビふり君"/>
-      </bt:LongStrings>
-    </Resources>
-  </VersionOverrides>
 </OfficeApp>
