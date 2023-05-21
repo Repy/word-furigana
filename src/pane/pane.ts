@@ -9,8 +9,8 @@ function getGlobal() {
 const g = getGlobal();
 
 Office.onReady(() => {
-  const button: HTMLElement = <HTMLElement>g.document.getElementById("button");
-  button.addEventListener("click", () => tryCatch(addRubi), false);
+  g.document.getElementById("button")!.addEventListener("click", () => tryCatch(addRubi), false);
+  g.document.getElementById("nazo")!.addEventListener("click", () => tryCatch(nazonoSpace), false);
 });
 
 async function addRubi() {
@@ -19,19 +19,21 @@ async function addRubi() {
     range.load("text");
     await context.sync();
     const rubidata = rubi(range.text);
-    range.clear();
-    await context.sync();
+    let nowRange = range;
     for (const iterator of rubidata) {
       const text = iterator.s;
       const rubitext = iterator.r;
-      const field = range.insertField(
-        Word.InsertLocation.end,
+      const code = "\\* jc2 \\* hps10 \\o(\\s\\up9(" + rubitext + ")," + text + ")";
+      console.log(code);
+      nowRange.insertField(
+        Word.InsertLocation.before,
         Word.FieldType.eq,
-        "\\* jc2 \\* hps10 \\o(\\s\\up9(" + rubitext + ")," + text + ")",
+        code.trim(),
         true
       );
-      await context.sync();
     }
+    range.clear();
+    await context.sync();
   });
 }
 
@@ -41,4 +43,17 @@ async function tryCatch(callback) {
   } catch (error) {
     console.error(error);
   }
+}
+
+
+async function nazonoSpace() {
+  await Word.run(async (context) => {
+    const range = context.document.getSelection();
+    range.load("fields");
+    await context.sync();
+    for (const iterator of range.fields.items) {
+      iterator.code = iterator.code.trim()
+    }
+    await context.sync();
+  });
 }
