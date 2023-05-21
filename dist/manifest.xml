@@ -9,8 +9,8 @@
   <DefaultLocale>ja-JP</DefaultLocale>
   <DisplayName DefaultValue="ルビふり君"/>
   <Description DefaultValue="ルビふり君"/>
-  <IconUrl DefaultValue="https://repy.github.io/word-furigana/assets/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://repy.github.io/word-furigana/assets/icon-64.png"/>
+  <IconUrl DefaultValue="https://repy.github.io/word-furigana/dist/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://repy.github.io/word-furigana/dist/assets/icon-64.png"/>
   <SupportUrl DefaultValue="https://www.repy.info/"/>
   <AppDomains>
     <AppDomain>https://repy.github.io</AppDomain>
@@ -59,13 +59,13 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://repy.github.io/word-furigana/assets/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://repy.github.io/word-furigana/assets/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://repy.github.io/word-furigana/assets/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://repy.github.io/word-furigana/dist/assets/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://repy.github.io/word-furigana/dist/assets/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://repy.github.io/word-furigana/dist/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
-        <bt:Url id="Commands.Url" DefaultValue="https://repy.github.io/word-furigana/commands.html"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://repy.github.io/word-furigana/dist/commands.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="App.Title" DefaultValue="ルビふり君"/>
