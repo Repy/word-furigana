@@ -26,7 +26,6 @@ function getGlobal() {
 const g = getGlobal();
 Office.onReady(() => {
     g.document.getElementById("button").addEventListener("click", () => tryCatch(addRubi), false);
-    g.document.getElementById("nazo").addEventListener("click", () => tryCatch(nazonoSpace), false);
 });
 function addRubi() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -46,6 +45,15 @@ function addRubi() {
             range.clear();
             yield context.sync();
         }));
+        yield Word.run((context) => __awaiter(this, void 0, void 0, function* () {
+            const range = context.document.getSelection();
+            range.load("fields");
+            yield context.sync();
+            for (const iterator of range.fields.items) {
+                iterator.code = iterator.code.trim();
+            }
+            yield context.sync();
+        }));
     });
 }
 function tryCatch(callback) {
@@ -56,19 +64,6 @@ function tryCatch(callback) {
         catch (error) {
             console.error(error);
         }
-    });
-}
-function nazonoSpace() {
-    return __awaiter(this, void 0, void 0, function* () {
-        yield Word.run((context) => __awaiter(this, void 0, void 0, function* () {
-            const range = context.document.getSelection();
-            range.load("fields");
-            yield context.sync();
-            for (const iterator of range.fields.items) {
-                iterator.code = iterator.code.trim();
-            }
-            yield context.sync();
-        }));
     });
 }
 
