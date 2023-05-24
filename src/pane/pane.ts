@@ -10,7 +10,6 @@ const g = getGlobal();
 
 Office.onReady(() => {
   g.document.getElementById("button")!.addEventListener("click", () => tryCatch(addRubi), false);
-  g.document.getElementById("nazo")!.addEventListener("click", () => tryCatch(nazonoSpace), false);
 });
 
 async function addRubi() {
@@ -35,18 +34,6 @@ async function addRubi() {
     range.clear();
     await context.sync();
   });
-}
-
-async function tryCatch(callback) {
-  try {
-    await callback();
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-
-async function nazonoSpace() {
   await Word.run(async (context) => {
     const range = context.document.getSelection();
     range.load("fields");
@@ -56,4 +43,12 @@ async function nazonoSpace() {
     }
     await context.sync();
   });
+}
+
+async function tryCatch(callback) {
+  try {
+    await callback();
+  } catch (error) {
+    console.error(error);
+  }
 }
